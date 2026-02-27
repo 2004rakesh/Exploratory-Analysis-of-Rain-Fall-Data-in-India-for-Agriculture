@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result: Rain Expected</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-image: url('https://img.freepik.com/premium-vector/rain-agricultural-field-with-even-rows-agricultural-farming-landscape_1326094-13426.jpg?w=1380');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        /* Dark overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 0;
+        }
+
+        /* Floating animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Glass effect */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-6 text-slate-100 relative z-10">
+
+    <div class="glass-card p-8 md:p-12 rounded-3xl shadow-2xl max-w-xl w-full">
+
+        <!-- Header -->
+        <div class="flex flex-col items-center text-center mb-8">
+            <div class="text-7xl mb-3 animate-float">🌧️</div>
+
+            <h1 class="text-3xl md:text-4xl font-bold text-white">
+                Rainfall Expected
+            </h1>
+
+            <div class="mt-3 px-4 py-1 rounded-full bg-green-500/20 border border-green-500/30 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                <span class="text-green-300 text-sm font-semibold">Prediction Successful</span>
+            </div>
+        </div>
+
+        <!-- Probability Section -->
+        <div class="text-center mb-10">
+            <p class="text-xs uppercase tracking-widest text-slate-400 mb-2">
+                Probability
+            </p>
+
+            <div class="text-6xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400">
+                {{ probability }}
+            </div>
+
+            <p class="text-slate-400 text-sm mt-2">
+                Chance of precipitation tomorrow
+            </p>
+        </div>
+
+        <!-- Action Plan -->
+        <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700/50 mb-8">
+            <h2 class="text-lg font-bold text-amber-400 mb-4 border-b border-slate-700 pb-2">
+                ⚠️ Agricultural Action Plan
+            </h2>
+
+            <ul class="space-y-4 text-sm text-slate-300">
+                <li>💧 <strong class="text-white">Irrigation:</strong> Stop immediately. Save water resources.</li>
+                <li>🚫 <strong class="text-white">Chemicals:</strong> Avoid spraying fertilizers or pesticides.</li>
+                <li>🚜 <strong class="text-white">Harvesting:</strong> Delay operations to prevent crop damage.</li>
+                <li>🌱 <strong class="text-white">Drainage:</strong> Clear field channels to prevent waterlogging.</li>
+            </ul>
+        </div>
+
+        <!-- Button -->
+        <div class="text-center">
+            <a href="/" 
+               class="inline-block w-full bg-blue-600 hover:bg-blue-500 transition-all duration-300 text-white font-semibold py-4 rounded-xl shadow-lg hover:shadow-blue-500/40">
+                Run Another Model
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>
